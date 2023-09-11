@@ -1,6 +1,6 @@
 # Gilbert
 
-Gilbert is a multipurpose General use moderation and server management bot created by @thereallonelee, written in Python using the Discordia API wrapper.
+Gilbert is a multipurpose General use moderation and server management bot created by @thereallonelee, written in Python using the Pycord API wrapper.
 
 The Key purpose of this bot is to be as straightforward and easy to use for the end user as much as possible. Aswell as being packed with features that are commonly locked behind a pay wall on other bots.
 
@@ -34,10 +34,10 @@ At the time of writing Gilber is planned to be deployed solely for assisting in 
 
 # Dependencies and credits! 
 
-- [Discordia Python Wrapper](https://github.com/SinisterRectus/Discordia)
-- [discordia-slash application commands](https://github.com/GitSparTV/discordia-slash)
-- [discordia-interactions](https://github.com/Bilal2453/discordia-interactions)
-- [Sparked Host VPS](https://billing.sparkedhost.com/aff.php?aff=2191)
+-
+-
+-
+-
 
 Wish to support me and this project directly?:heart:
 
