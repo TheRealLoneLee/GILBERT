@@ -1,9 +1,13 @@
+/.swp
+/.idea
+/discord.log
+
 # environment variables
 *.env
 
 # pycache directories
 __pycache__
-*.swp
+
 
 # log files
 *.log
