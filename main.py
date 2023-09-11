@@ -1,21 +1,24 @@
 import discord
 import logging
 import sqlite3
-import asyncio
 import json
 import os
 from discord.ext import tasks
-import twitchio
 import aiohttp
+# import asyncio
+# import twitchio
+
 
 intents = discord.Intents.all()  # Set Intents
 bot = discord.Bot()  # Create Bot Instance
+
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.WARNING)
 handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
+
 
 with open("config.json") as config_file:
     config = json.load(config_file)

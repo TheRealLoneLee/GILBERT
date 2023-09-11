@@ -54,6 +54,8 @@ class NotifyCommand(commands.Cog):
         except asyncio.TimeoutError:
             await ctx.send("You took too long to respond for the Twitch Username.")
 
+# TODO: Refactor code to allow the user to authorise their Twitch account and get the user ID from that following the
+#  documentation found here: https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/
 
 def setup(bot):
     bot.add_cog(NotifyCommand(bot))
