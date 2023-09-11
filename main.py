@@ -1,4 +1,4 @@
-import discord 
+import discord
 import logging
 import sqlite3
 import json
