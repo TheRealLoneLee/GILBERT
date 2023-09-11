@@ -1,4 +1,4 @@
-# Gilbert)
+# Gilbert
 
 Gilbert is a multipurpose General use moderation and server management bot created by @thereallonelee, written in Python using the Discordia API wrapper.
 
