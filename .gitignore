@@ -3,7 +3,7 @@
 
 # pycache directories
 __pycache__
-.swp
+*.swp
 
 # log files
 *.log
