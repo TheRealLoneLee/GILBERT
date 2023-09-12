@@ -4,6 +4,10 @@ import asyncio
 import sqlite3
 from discord.ext import commands
 
+# Load the Twitch Client ID from config.json
+with open('config.json', 'r') as config_file:
+    config_data = json.load(config_file)
+twitch_client_id = config_data["TWITCH_CLIENT_ID"]
 
 class NotifyCommand(commands.Cog):
     def __init__(self, bot):
@@ -21,41 +25,54 @@ class NotifyCommand(commands.Cog):
             twitch_username_msg = await self.bot.wait_for('message', check=check, timeout=60.0)
             twitch_username = twitch_username_msg.content.strip()
 
-            # Ask for a Role ID to ping
-            await ctx.send("Please enter the Role ID to ping:")
+            # Generate the OAuth URL
+            oauth_url = f"https://id.twitch.tv/oauth2/authorize?client_id={twitch_client_id}&redirect_uri=http://localhost&response_type=token&scope=user:read:email+channel:read:subscriptions+channel:read:redemptions+channel_subscriptions+user_read_broadcast+user_read_email+user_follows_edit+chat:read+chat:edit+whispers:read+whispers:edit&state={twitch_username}"
+
+            await ctx.send(f"Please visit this URL to authorize the bot: {oauth_url}")
+
+            # Wait for the user to complete the OAuth authorization
+            await ctx.send("After authorizing the bot, please enter the OAuth token:")
 
             try:
-                # Wait for a message with the role ID
-                role_id_msg = await self.bot.wait_for('message', check=check, timeout=60.0)
-                notify_role_id = int(role_id_msg.content.strip())
+                # Wait for a message with the OAuth token
+                oauth_token_msg = await self.bot.wait_for('message', check=check, timeout=600.0)
+                oauth_token = oauth_token_msg.content.strip()
 
-                # Store the data in the SQLite database
-                conn = sqlite3.connect('live-notify.db')
-                cursor = conn.cursor()
+                # Ask for a Role ID to ping
+                await ctx.send("Please enter the Role ID to ping:")
 
-                user_id = ctx.author.id
+                try:
+                    # Wait for a message with the role ID
+                    role_id_msg = await self.bot.wait_for('message', check=check, timeout=60.0)
+                    notify_role_id = int(role_id_msg.content.strip())
 
-                # Insert data into the table
-                cursor.execute('''
-                    INSERT INTO twitch_users (user_id, twitch_username, notify_role_id)
-                    VALUES (?, ?, ?)
-                ''', (user_id, twitch_username, notify_role_id))
+                    # Store the data in the SQLite database, including the OAuth token
+                    conn = sqlite3.connect('live-notify.db')
+                    cursor = conn.cursor()
 
-                # Commit the changes and close the connection
-                conn.commit()
-                conn.close()
+                    user_id = ctx.author.id
 
-                await ctx.send("Successfully added you to the notify list!")
+                    # Insert data into the table, including the OAuth token
+                    cursor.execute('''
+                        INSERT INTO twitch_users (user_id, twitch_username, notify_role_id, oauth_token)
+                        VALUES (?, ?, ?, ?)
+                    ''', (user_id, twitch_username, notify_role_id, oauth_token))
 
-            except ValueError:
-                await ctx.send("Invalid Role ID. Please enter a valid Role ID.")
+                    # Commit the changes and close the connection
+                    conn.commit()
+                    conn.close()
+
+                    await ctx.send("Successfully added you to the notify list!")
+
+                except ValueError:
+                    await ctx.send("Invalid Role ID. Please enter a valid Role ID.")
+                except asyncio.TimeoutError:
+                    await ctx.send("You took too long to respond for the Role ID.")
+
             except asyncio.TimeoutError:
-                await ctx.send("You took too long to respond for the Role ID.")
+                await ctx.send("You took too long to respond for the OAuth token.")
         except asyncio.TimeoutError:
             await ctx.send("You took too long to respond for the Twitch Username.")
-
-# TODO: Refactor code to allow the user to authorise their Twitch account and get the user ID from that following the
-#  documentation found here: https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/
 
 def setup(bot):
     bot.add_cog(NotifyCommand(bot))
