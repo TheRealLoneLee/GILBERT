@@ -66,7 +66,7 @@ read -p "Do you want to run the database setup? (if no then you will need to man
 case ${answer:0:1} in
     y|Y )
         echo "Running database setup..."
-        python3 ./bot/GILBERT/database_setup.py # Setup the database
+        python3 bot/GILBERT/database_setup.py # Setup the database
     ;;
     * )
         echo "Skipping database setup."
@@ -78,7 +78,7 @@ read -p "Do you want to start the bot? (Y/N) " answer
 case ${answer:0:1} in
     y|Y )
         echo "Starting the bot..."
-        python3 ./bot/GILBERT/main.py # Run the bot
+        python3 bot/GILBERT/main.py # Run the bot
     ;;
     * )
         echo "Skipping automatic bot start. (You can start the bot manually by running 'python3 main.py') Enjoy!"
