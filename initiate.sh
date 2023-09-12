@@ -30,6 +30,13 @@ else
     fi
 fi
 
+# Move the config.json file to the GILBERT directory created by the github clone
+if [ -f "../config.json" ]; then
+    mv ../config.json .
+else
+    echo "config.json does not exist in the bot directory."
+fi
+
 # Check if Python is installed and update it if necessary
 if command -v python3 &>/dev/null; then
     echo "Python 3 is installed. Checking for updates..."
@@ -58,7 +65,7 @@ read -p "Do you want to run the database setup? (if no then you will need to man
 case ${answer:0:1} in
     y|Y )
         echo "Running database setup..."
-        python3 /database_setup.py # Setup the database
+        python3 ./bot/GILBERT/database_setup.py # Setup the database
     ;;
     * )
         echo "Skipping database setup."
@@ -70,7 +77,7 @@ read -p "Do you want to start the bot? (Y/N) " answer
 case ${answer:0:1} in
     y|Y )
         echo "Starting the bot..."
-        python3 main.py # Run the bot
+        python3 ./bot/GILBERT/main.py # Run the bot
     ;;
     * )
         echo "Skipping automatic bot start. (You can start the bot manually by running 'python3 main.py') Enjoy!"
