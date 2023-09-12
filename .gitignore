@@ -1,7 +1,9 @@
-/.swp
-/.idea
-/discord.log
+# Files to ignore
 
+*.swp
+*.idea
+discord.log
+*.zip
 # environment variables
 *.env
 
