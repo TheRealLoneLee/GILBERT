@@ -12,15 +12,21 @@ fi
 # Navigate to your bot directory
 cd bot
 
-# Check for updates from the remote repository
-git remote update
-
-# If updates were found, pull them
-if [ $(git status -uno | grep 'Your branch is behind' | wc -l) -gt 0 ]; then
-    echo "Updates found. Pulling latest changes..."
-    git pull
+# Check if the repository exists in the directory
+if [ ! -d ".git" ]; then
+    echo "Repository not found. Cloning..."
+    git clone https://github.com/TheRealLoneLee/GILBERT.git .
 else
-    echo "No updates found."
+    echo "Repository found. Checking for updates..."
+    git remote update
+
+    # If updates were found, pull them
+    if [ $(git status -uno | grep 'Your branch is behind' | wc -l) -gt 0 ]; then
+        echo "Updates found. Pulling latest changes..."
+        git pull
+    else
+        echo "No updates found."
+    fi
 fi
 
 # Check if Python is installed and update it if necessary
@@ -47,7 +53,7 @@ pip3 install twitchio # Install the twitchio library
 pip3 install aiohttp # Install the aiohttp library
 
 # Prompt the user before running the database setup
-read -p "Do you want to run the database setup? (Y/N) " answer
+read -p "Do you want to run the database setup? (if no then you will need to manually initiate this on your own.) (Y/N) " answer
 case ${answer:0:1} in
     y|Y )
         echo "Running database setup..."
@@ -69,3 +75,5 @@ case ${answer:0:1} in
         echo "Skipping automatic bot start. (You can start the bot manually by running 'python3 main.py') Enjoy!"
     ;;
 esac
+
+# Exit the script
