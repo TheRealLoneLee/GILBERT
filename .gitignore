@@ -4,6 +4,7 @@
 *.idea
 discord.log
 *.zip
+/automation-tools/
 # environment variables
 *.env
 

@@ -4,8 +4,8 @@ import shutil
 from tqdm import tqdm
 
 # Check if the directory "builds" exists
-if not os.path.exists("builds"):
-    os.makedirs("builds")
+if not os.path.exists("../builds"):
+    os.makedirs("../builds")
 
 # Ask the user for the current version
 version = input("Please enter the current version in the format 'v0.0.0': ")
@@ -14,7 +14,7 @@ version = input("Please enter the current version in the format 'v0.0.0': ")
 zipfile_name = "Gilbert-" + version + ".zip"
 
 # Create a ZipFile object
-with zipfile.ZipFile(os.path.join("builds", zipfile_name), 'w') as zipf:
+with zipfile.ZipFile(os.path.join("../builds", zipfile_name), 'w') as zipf:
     # List of files to add
     files_to_add = ["./setup.py", "./initiate.sh"]
 
