@@ -14,13 +14,13 @@ At the time of writing Gilbert is planned to be deployed solely for assisting in
 
 *(In order of prioritisation, the following is planned to be added)* *(Note that a ~~Strikethrough~~ = Completed)*
 
-- ~~Commands handler directory with each command having its own file to be called upon only when needed.~~
+- ✅ ~~Commands handler directory with each command having its own file to be called upon only when needed.~~
 
-- ~~/ping command to show uptime and responsiveness of the bot for development and management purposes.~~
+- ✅ ~~/ping command to show uptime and responsiveness of the bot for development and management purposes.~~
 
-- /set-notify command to specify which channel to send notifications to. (currently still under development)
+-  /set-notify command to specify which channel to send notifications to. (currently still under development)
 
-- /notify command to link a users discord to their twitch account allowing the bot to send a notification to
+-  /notify command to link a users discord to their twitch account allowing the bot to send a notification to
 a set role once the channel is detected as live (Still work in progress)
 
 - moderation commands such as kick, ban, warn etc. potential auto mod with a filtered list of bad words.
