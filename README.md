@@ -58,7 +58,7 @@ twitch schedules automatically via discord.)
 - [Sparked Host VPS](https://billing.sparkedhost.com/aff.php?aff=2191)
 
 And finally, @TheRealLoneLee for creating the bot and all of its features.
-- Youtube: https://www.youtube.com/channel/UC4ZwXw7n7MkWxjU4QDJj1Yw
+- Youtube: https://www.youtube.com/@thereallonelee
 - Twitch: https://www.twitch.tv/thareallonelee
 - Github: https://www.github.com/thereallonelee
 
