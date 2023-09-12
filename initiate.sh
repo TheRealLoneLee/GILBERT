@@ -13,11 +13,12 @@ fi
 cd bot
 
 # Check if the repository exists in the directory
-if [ ! -d ".git" ]; then
+if [ ! -d "GILBERT" ]; then
     echo "Repository not found. Cloning..."
-    git clone https://github.com/TheRealLoneLee/GILBERT.git .
+    git clone https://github.com/TheRealLoneLee/GILBERT.git GILBERT
 else
     echo "Repository found. Checking for updates..."
+    cd GILBERT
     git remote update
 
     # If updates were found, pull them
