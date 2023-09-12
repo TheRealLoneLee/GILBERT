@@ -56,7 +56,10 @@ else
     sudo apt install python3-pip
 fi
 
-pip3 install pycord # Install the Pycord library
+pip3 install py-cord
+pip3 install -U py-cord
+pip3 install py-cord[voice]
+pip3 install -U py-cord[voice]
 pip3 install python-dotenv # Install the dotenv library
 pip3 install twitchio # Install the twitchio library
 pip3 install aiohttp # Install the aiohttp library
