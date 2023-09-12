@@ -8,3 +8,5 @@ pip3 install twitchio # Install the twitchio library
 pip3 install aiohttp # Install the aiohttp library
 
 python3 database_setup.py # Setup the database
+
+python3 main.py # Run the bot
