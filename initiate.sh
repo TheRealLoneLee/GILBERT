@@ -76,17 +76,8 @@ case ${answer:0:1} in
     ;;
 esac
 
-# Prompt the user before starting the bot
-read -p "Do you want to start the bot? (Y/N) " answer
-case ${answer:0:1} in
-    y|Y )
-        echo "Starting the bot..."
-        python3 GILBERT/main.py # Run the bot
-    ;;
-    * )
-        echo "Skipping automatic bot start. (You can start the bot manually by running 'python3 main.py') Enjoy!"
-    ;;
-esac
+# Inform the user that the bot setup is complete
+echo "Bot setup is complete. You can start the bot manually by navigating to the GILBERT directory and running 'python3 main.py'."
 
 # Exit the script
 
