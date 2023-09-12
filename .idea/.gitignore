@@ -1,3 +1,34 @@
-# Default ignored files
-/shelf/
-/workspace.xml
+# Files to ignore
+/builds/
+*.swp
+*.swo
+*~
+*.idea
+discord.log
+*.zip
+/automation-tools/
+# environment variables
+*.env
+
+# pycache directories
+__pycache__
+
+
+# log files
+*.log
+
+# database
+# Temporary database files and database
+*.db-shm
+*.db-wal
+*.db
+
+# Secrets & keys
+*.json
+*.config
+config.json
+
+# IDEs and editors
+.idea
+.vscode
+
