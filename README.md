@@ -1,6 +1,6 @@
 # Gilbert
 
-Gilbert is a multipurpose General use moderation and server management bot created by @thereallonelee, written in Python using the Discordia API wrapper.
+Gilbert is a multipurpose General use moderation and server management bot created by @thereallonelee, written in Python using the Pycord API wrapper.
 
 The Key purpose of this bot is to be as straightforward and easy to use for the end user as much as possible. As well as being packed with features that are commonly locked behind a pay wall on other bots.
 
@@ -12,9 +12,7 @@ At the time of writing Gilbert is planned to be deployed solely for assisting in
 
 # Roadmap & Planned Features
 
-*(In order of prioritisation, the following is planned to be added)*
-
-~~Strikethrough~~ = Completed
+*(In order of prioritisation, the following is planned to be added)* *(Note that a ~~Strikethrough~~ = Completed)*
 
 - ~~Commands handler directory with each command having its own file to be called upon only when needed.~~
 
@@ -60,9 +58,9 @@ twitch schedules automatically via discord.)
 - [Sparked Host VPS](https://billing.sparkedhost.com/aff.php?aff=2191)
 
 And finally, @TheRealLoneLee for creating the bot and all of its features.
-Youtube: https://www.youtube.com/channel/UC4ZwXw7n7MkWxjU4QDJj1Yw
-Twitch: https://www.twitch.tv/thareallonelee
-Github: https://www.github.com/thereallonelee
+- Youtube: https://www.youtube.com/channel/UC4ZwXw7n7MkWxjU4QDJj1Yw
+- Twitch: https://www.twitch.tv/thareallonelee
+- Github: https://www.github.com/thereallonelee
 
 
 Wish to support me and this project directly?:heart:
