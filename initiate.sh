@@ -57,7 +57,7 @@ read -p "Do you want to run the database setup? (if no then you will need to man
 case ${answer:0:1} in
     y|Y )
         echo "Running database setup..."
-        python3 database_setup.py # Setup the database
+        python3 /database_setup.py # Setup the database
     ;;
     * )
         echo "Skipping database setup."
