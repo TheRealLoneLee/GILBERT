@@ -30,20 +30,21 @@ else
     fi
 fi
 
-# Move the config.json file to the GILBERT directory created by the github clone
-if [ -f "../config.json" ]; then
-    mv ../config.json .
-else
-    echo "config.json does not exist in the bot directory."
-fi
+# Create a dictionary with the default configuration
+echo '{
+    "token": "[BOT TOKEN]",
+    "TWITCH_CLIENT_ID": "[TWITCH APP ID]"
+}' > config.json
 
-# Check if Python is installed and update it if necessary
-if command -v python3 &>/dev/null; then
-    echo "Python 3 is installed. Checking for updates..."
-    sudo apt update && sudo apt upgrade python3
-else
-    echo "Python 3 is not installed. Installing..."
-    sudo apt update && sudo apt install python3
+# Prompt the user for their Discord bot token
+read -p "Please enter your Discord bot token: " token
+sed -i 's/\[BOT TOKEN\]/'"$token"'/' config.json
+
+# Ask the user if they want to use Twitch integration
+read -p "Do you want to use Twitch integration? (Y/N) " twitch_integration
+if [ "$twitch_integration" = "Y" ] || [ "$twitch_integration" = "y" ]; then
+    read -p "Please enter your Twitch application client ID: " twitch_client_id
+    sed -i 's/\[TWITCH APP ID\]/'"$twitch_client_id"'/' config.json
 fi
 
 # Check if pip is installed and update it if necessary
@@ -85,3 +86,4 @@ case ${answer:0:1} in
 esac
 
 # Exit the script
+
