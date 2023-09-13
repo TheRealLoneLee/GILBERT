@@ -7,7 +7,7 @@ import datetime
 class PingCommand(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.start_time = None  # Store the bot's start time (initially None)
+        self.start_time = None  # Store the bots start time (initially None)
         self.last_ping_time = None  # Store the last time the /ping command was run
 
     @commands.slash_command(
